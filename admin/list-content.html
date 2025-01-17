@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <style>
+        .content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .content-header button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .content-header button:hover {
+            background-color: #0056b3;
+        }
+
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .content table th, .content table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .content table th {
+            background-color: #f4f4f4;
+        }
+
+        .content table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .content table tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <h2>Dashboard</h2>
+            <nav>
+                <ul>
+                    <li><a href="#" aria-current="page">Home</a></li>
+                    <li><a href="add-content.html">Benefit</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="#" id="logoutBtn">Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="content">
+            <div class="content-header">
+                <h1>Content List</h1>
+                <button onclick="showAddContentForm()">Add Content</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Icon</th>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Description</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="contentTableBody">
+                    <!-- Dynamic rows will be injected here -->
+                </tbody>
+            </table>
+
+            <!-- Content Form Section (Initially hidden) -->
+            <div class="form-container" style="display: none;">
+                <h1>Add New Content</h1>
+                <form id="addContentForm">
+                    <label for="icon">Icon URL or File Path:</label>
+                    <input type="text" id="icon" name="icon" required><br><br>
+
+                    <label for="img">Primary Image URL or File Path:</label>
+                    <input type="file" id="img" name="img" required><br><br>
+
+                    <label for="display_description">Display Description:</label>
+                    <textarea id="display_description" name="display_description" required></textarea><br><br>
+
+                    <label for="image">Additional Image URL or File Path:</label>
+                    <input type="file" id="image" name="image" required><br><br>
+
+                    <label for="description">Detailed Description:</label>
+                    <textarea id="description" name="description" required></textarea><br><br>
+
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title" required><br><br>
+
+                    <label for="category">Category:</label>
+                    <select id="category" name="category">
+                        <option value="Benefit">Benefit</option>
+                    </select><br><br>
+
+                    <button type="submit">Add Content</button>
+                </form>
+                <p id="message"></p>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Function to fetch content by category
+        async function fetchContentByCategory(category) {
+            const response = await fetch(`http://localhost/robohost-bck/api/list-content.php?category=${category}`);
+            const data = await response.json();
+            const tableBody = document.getElementById('contentTableBody');
+            tableBody.innerHTML = '';
+
+            data.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><img src="${item.icon}" alt="Icon" style="width: 50px;"></td>
+                    <td>${item.title}</td>
+                    <td>${item.category}</td>
+                    <td>${item.display_description}</td>
+                    <td>
+                        <button ><a href="edit-content.html?id=${item.id}">Edit</a></button>
+                        <button>Delete</button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        function showAddContentForm() {
+            const formContainer = document.querySelector('.form-container');
+            formContainer.style.display = 'block';
+        }
+
+        // Fetch content on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchContentByCategory('Benefit');
+        });
+    </script>
+
+</body>
+</html>
