@@ -6,10 +6,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (userData) {
         const parsedData = JSON.parse(userData);
-        // Display user data in dashboard
+        const currentURL = window.location.href;
+
+        if (currentURL.includes("dashboard.html")) {
+                // Display user data in dashboard
         document.getElementById('userName').textContent = `User: ${parsedData.email}`;
         document.getElementById('lastLogin').textContent = `Last Login: ${parsedData.lastLogin}`;
         document.getElementById('status').textContent = `Status: Logged In`;
+        } else {
+            console.log("This is not the dashboard page.");
+        }
+
+  
     } else {
         window.location.href = 'index.html'; // Redirect to login if not logged in
     }
@@ -22,11 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-windows.onload = function () {
-    if (userData) {
-        window.location ='admin/index.html';
-    }
-}
+
 
 
 
