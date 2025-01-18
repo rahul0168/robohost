@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+    .container {
+        width: 50%;
+        margin: auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-top: 50px;
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    label {
+        font-weight: bold;
+    }
+    input, textarea, button {
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    button {
+        background: #0c4ea2;
+        color: #fff;
+        cursor: pointer;
+    }
+    button:hover {
+        background: #09408a;
+    }
+    #message {
+        text-align: center;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+</style>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <h2>Dashboard</h2>
+            <nav>
+                <ul>
+                    <li><a href="dashboard.html" >Home</a></li>
+                    <li><a href="list-content.html" id="#">Benefit</a></li>
+                    <li><a href="drawbacks-list.html" id="#">Drawbacks</a></li>
+                    <li><a href="critical-list.html" id="#">Critical</a></li>
+                    <li><a href="feature-list.html" id="#">Feature</a></li>
+                    <li><a href="settings.html">Settings</a></li>
+                    <li><a href="#" id="logoutBtn">Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="content">
+            <div class="container">
+                <h1>Manage Content</h1>
+                <form id="contentForm">
+                    <!-- Hidden ID Field for Update -->
+                    <input type="hidden" name="id" id="id" />
+        
+                    <label for="about_us">About Us</label>
+                    <textarea name="about_us" id="about_us" rows="4" placeholder="Enter About Us content"></textarea>
+        
+                    <label for="about_us_img">About Us Image</label>
+                    <input type="text" name="about_us_img" id="about_us_img" placeholder="Enter Image URL or Path" />
+        
+                    <label for="benefit_title">Benefit Title</label>
+                    <input type="text" name="benefit_title" id="benefit_title" placeholder="Enter Benefit Title" />
+        
+                    <label for="drawbacks_title">Drawbacks Title</label>
+                    <input type="text" name="drawbacks_title" id="drawbacks_title" placeholder="Enter Drawbacks Title" />
+        
+                    <label for="critical_title">Critical Title</label>
+                    <input type="text" name="critical_title" id="critical_title" placeholder="Enter Critical Title" />
+        
+                    <label for="future_title">Future Title</label>
+                    <input type="text" name="future_title" id="future_title" placeholder="Enter Future Title" />
+        
+                    <button type="button" id="submitBtn">Submit</button>
+                </form>
+                <div id="message"></div>
+            </div>
+
+        </main>
+    </div>
+  <script src="js/dashboard.js"></script>
+    <script>
+        const apiUrl = 'http://localhost/robohost-bck/api/apiCore.php'; // API endpoint
+
+        // Function to fetch data and populate the form
+        async function fetchData(id) {
+            try {
+                const response = await fetch(`${apiUrl}?id=${id}`);
+                const result = await response.json();
+
+                if (result.status === 'success') {
+                    const data = result.data[0];
+                    //console.log(data);
+
+                    // Populate fields with fetched data
+                    document.getElementById('id').value = data.id;
+                    document.getElementById('about_us').value = data.about_us;
+                    document.getElementById('about_us_img').value = data.about_us_img;
+                    document.getElementById('benefit_title').value = data.benefit_title;
+                    document.getElementById('drawbacks_title').value = data.drawbacks_title;
+                    document.getElementById('critical_title').value = data.critical_title;
+                    document.getElementById('future_title').value = data.future_title;
+                } else {
+                    document.getElementById('message').textContent = result.message;
+                    document.getElementById('message').style.color = 'red';
+                }
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                document.getElementById('message').textContent = 'An error occurred while fetching the data.';
+                document.getElementById('message').style.color = 'red';
+            }
+        }
+
+        // Function to submit form data
+        async function submitData() {
+            const id = document.getElementById('id').value.trim();
+            const aboutUs = document.getElementById('about_us').value.trim();
+            const aboutUsImg = document.getElementById('about_us_img').value.trim();
+            const benefitTitle = document.getElementById('benefit_title').value.trim();
+            const drawbacksTitle = document.getElementById('drawbacks_title').value.trim();
+            const criticalTitle = document.getElementById('critical_title').value.trim();
+            const futureTitle = document.getElementById('future_title').value.trim();
+
+            const formData = new URLSearchParams({
+                id: id || '', // Blank for new entries
+                about_us: aboutUs,
+                about_us_img: aboutUsImg,
+                benefit_title: benefitTitle,
+                drawbacks_title: drawbacksTitle,
+                critical_title: criticalTitle,
+                future_title: futureTitle
+            });
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: formData.toString()
+                });
+
+                const result = await response.json();
+                const messageDiv = document.getElementById('message');
+
+                if (result.status === 'success') {
+                    messageDiv.textContent = result.message;
+                    messageDiv.style.color = 'green';
+                    //document.getElementById('contentForm').reset(); // Clear form
+                } else {
+                    messageDiv.textContent = result.message;
+                    messageDiv.style.color = 'red';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                const messageDiv = document.getElementById('message');
+                messageDiv.textContent = 'An error occurred while submitting the data.';
+                messageDiv.style.color = 'red';
+            }
+        }
+
+        // Fetch data for a specific ID (e.g., ID = 1) when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchData(1); // Replace `1` with the desired record ID to fetch
+        });
+
+        // Attach submit handler
+        document.getElementById('submitBtn').addEventListener('click', submitData);
+    </script>
+</body>
+</html>
