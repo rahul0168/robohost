@@ -37,6 +37,7 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet" />
+    
   </head>
 <style>
     .bg-primary {
@@ -149,8 +150,7 @@
         >
           AI.Tech
         </div> -->
-        <h6 class="display-4 text-white mb-4 animated slideInRight" style="font-size: 2rem;">
-          Evaluating the Integration of Robotics in the Hospitality Industry: Benefits, Drawbacks, and Critical Considerations
+        <h6 class="display-4 text-white mb-4 animated slideInRight" style="font-size: 2rem;" id="slider-text">
         </h6>
         <!-- <p class="text-white mb-4 animated slideInRight" style="text-align: justify;">
           The hospitality industry is an important part of the global service economy, encompassing businesses like hotels, restaurants, and event management companies. Success in this industry hinges on providing seamless customer experiences, a goal increasingly influenced by technological advancements.
@@ -209,20 +209,14 @@
       <div class="container">
         <div class="row g-5 align-items-center">
           <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-            <div class="about-img">
-              <img class="img-fluid" src="img/ai2.png" />
+            <div class="about-img" id="about-img">
             </div>
           </div>
           <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
           
             <h1 class="mb-4">Welcome to Robotics in Hospitality</h1>
-            <p class="mb-4">
-              The hospitality industry is an important part of the global service economy, and it includes businesses like hotels, restaurants, and event management companies. Its success is dependent on providing seamless customer experiences, which is becoming increasingly important as technology advances. Robotics, in particular, has emerged as a game changer, capable of automating repetitive tasks, enhancing operational efficiency, and providing distinctive guest experiences (Figure 1). Furthermore, various writers have disputed the benefits and drawbacks of using robots in the hotel business (Palrao et al., 2023; Ivavonav & Webster, 2019; Ivanov et al., 2023; and several other authors, see Table 1).
-            </p>
-
-            <p>
-              This report looks at the benefits and drawbacks of deploying robots in the hospitality business. Butlers and concierges, as well as automated cleaning and food delivery systems, all make use of robots. Despite these benefits, incorporating robots into hospitality operations brings some particular problems. The industry's emphasis on personal contacts, along with the ethical and economic consequences of automation, has provoked continuous controversy (Cobanoglu, 2022; Palrao et al., 2023).
-            </p>
+            <p class="mb-4" id="About-us-text"></p>
+            <p id="About-us-text_para"></p>
         
        
           </div>
@@ -237,7 +231,7 @@
   <div class="container py-5">
       <div class="row g-5 align-items-center">
           <div class="col-lg-12 wow fadeIn text-center" data-wow-delay="0.1s">
-              <h1 class="mb-4">Benefits of Robotics in the Hospitality Industry</h1>
+              <h1 class="mb-4" id="Benefits-text"></h1>
           </div>
           <div class="row g-4" id="benefit-items-container">
               <!-- Dynamically generated benefit items will be appended here -->
@@ -253,7 +247,7 @@
         <div class="row g-5 align-items-center">
             <div class="col-lg-12 wow fadeIn text-center" data-wow-delay="0.1s">
               
-                <h1 class="mb-4">Drawbacks of Robotics in the Hospitality Industry</h1>
+                <h1 class="mb-4" id="Drawbacks-text"></h1>
             </div>
             <div class="col-lg-12">
               <div class="row g-4" id="Drawbacks-container">
@@ -277,7 +271,7 @@
               style="max-width: 1200px"
             >
            
-              <h1 class="mb-4">Critical Evaluation of Issues in Robotics  </h1>
+              <h1 class="mb-4" id="Critical-text">Critical Evaluation of Issues in Robotics  </h1>
             </div>
             <div id="Critical-container" class="row g-4">
               <!-- Content will be dynamically populated here -->
@@ -304,7 +298,7 @@
               style="max-width: 1200px"
             >
             
-              <h1 class="mb-4">Discussion and Future Trends in Robotics  </h1>
+              <h1 class="mb-4" id="Discussion-text">Discussion and Future Trends in Robotics  </h1>
             </div>
             <div class="row g-4" id="Future-container">
              
@@ -423,6 +417,46 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+      async function fetchData() {
+        try {
+            // Make the API request to the provided endpoint
+            const response = await fetch('https://tkeworld.com/demo/robohost/api/apiCore.php');
+    
+            // Check if the response is successful (status code 200-299)
+            if (response.ok) {
+                // Parse the JSON response
+                const data = await response.json();
+    
+                // Check the data structure and handle accordingly (example of logging the data)
+                console.log(data.data[0]);
+                document.getElementById('About-us-text').innerHTML = data.data[0].about_us;
+                document.getElementById('About-us-text_para').innerHTML = data.data[0].about_us_para;
+                document.getElementById('Benefits-text').innerHTML = data.data[0].benefit_title;
+                document.getElementById('Drawbacks-text').innerHTML = data.data[0].critical_title;
+                document.getElementById('Critical-text').innerHTML = data.data[0].drawbacks_title;
+                document.getElementById('Discussion-text').innerHTML = data.data[0].future_title;
+                document.getElementById('slider-text').innerHTML = data.data[0].slider_text;
+                document.getElementById('about-img').innerHTML  = ` <img class="img-fluid" src="https://tkeworld.com/demo/robohost/api/${data.data[0].about_us_img}" >`;
+
+    
+                // You can process the response data here and display it on your page
+                // For example, if the data is an array of content, you can render it dynamically
+            } else {
+                console.error('Failed to fetch data');
+                alert('Failed to fetch data from the API. Please try again later.');
+            }
+        } catch (error) {
+            // Handle any errors that occur during the fetch
+            console.error('Error:', error);
+            alert('An error occurred while fetching data. Please try again later.');
+        }
+    }
+    
+    // Call the fetchData function to get the data
+    fetchData();
+    
+    </script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const apiUrl = "https://tkeworld.com/demo/robohost/api/list-content.php?category=Benefit";
@@ -549,7 +583,7 @@ async function fetchCriticalData() {
 
         // Loop through the critical data and generate HTML for each item
         criticalData.forEach((item, index) => {
-          console.log(item);
+         // console.log(item);
             const cardHTML = `
                 <div class="col-lg-4 wow fadeIn" data-wow-delay="0.3s">
                     <div class="case-item position-relative overflow-hidden rounded mb-2">
