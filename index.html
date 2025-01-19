@@ -47,7 +47,7 @@
       padding: 45px 30px;
       background: #FFFFFF;
       transition: .5s;
-      height: 24rem;
+      height: calc(100% - 2rem);
   }
   p{
     text-align: justify;
@@ -58,7 +58,7 @@
       padding: 45px 30px;
       background: #FFFFFF;
       transition: .5s;
-      height: 33rem;
+      height: calc(100% - 2rem);
   }
   }
 </style>
@@ -232,98 +232,19 @@
     <!-- About End -->
 
  <!-- Service Start -->
- <div class="container-fluid bg-light mt-5 py-5" id="feature">
+
+<div class="container-fluid bg-light mt-5 py-5" id="Benefit">
   <div class="container py-5">
       <div class="row g-5 align-items-center">
           <div class="col-lg-12 wow fadeIn text-center" data-wow-delay="0.1s">
-             
               <h1 class="mb-4">Benefits of Robotics in the Hospitality Industry</h1>
           </div>
-          <div class="col-lg-12">
-              <div class="row g-4">
-                  <!-- Column 1: Enhancing Operational Efficiency -->
-                  <div class="col-md-4 wow fadeIn" data-wow-delay="0.1s">
-                      <div class="service-item d-flex flex-column justify-content-center text-center rounded">
-                          <div class="service-icon btn-square">
-                              <i class="fa fa-handshake fa-2x"></i>
-                          </div>
-                          <h5 class="mb-3">Enhancing Operational Efficiency</h5>
-                          <p>
-                              One of the main advantages of robots in hospitality is their capacity to accomplish repetitive and time-consuming tasks swiftly and reliably. Robots do not tire or require breaks, allowing them to operate continuously and at high output levels. Automated housekeeping robots can clean rooms or public areas with precision, freeing up human staff for more challenging tasks.
-                          </p>
-                          <a class="btn px-3 mt-auto mx-auto" href="feature.html">Read More</a>
-                      </div>
-                  </div>
-
-                  <!-- Column 2: Reducing Operational Costs -->
-                  <div class="col-md-4 wow fadeIn" data-wow-delay="0.3s">
-                      <div class="service-item d-flex flex-column justify-content-center text-center rounded">
-                          <div class="service-icon btn-square">
-                              <i class="fa fa-users-cog fa-2x"></i>
-                          </div>
-                          <h5 class="mb-3">Reducing Operational Costs</h5>
-                          <p>
-                              Labor difficulties in the hotel business have been worsened by the COVID-19 epidemic. Robots can help address personnel gaps by performing tasks such as housekeeping and culinary preparation, ensuring dependability and continuity during periods of high demand.
-                          </p>
-                          <a class="btn px-3 mt-auto mx-auto" href="feature.html">Read More</a>
-
-                      </div>
-                  </div>
-
-                  <!-- Column 3: Enhancing Guest Acceptance -->
-                  <div class="col-md-4 wow fadeIn" data-wow-delay="0.5s">
-                      <div class="service-item d-flex flex-column justify-content-center text-center rounded">
-                          <div class="service-icon btn-square">
-                              <i class="fa fa-smile-beam fa-2x"></i>
-                          </div>
-                          <h5 class="mb-3">Enhancing Guest Acceptance</h5>
-                          <p>
-                              The novelty of engaging with robots appeals to tech-savvy tourists. Robots elevate customer experiences by blending efficiency with entertainment, ensuring satisfaction and leaving a lasting impression on guests.
-                          </p>
-                                                    <a class="btn px-3 mt-auto mx-auto" href="feature.html">Read More</a>
-
-                      </div>
-                  </div>
-              </div>
-
-              <div class="row g-4 mt-4">
-                  <!-- Column 4: Addressing Labor Shortages -->
-                  <div class="col-md-4 wow fadeIn" data-wow-delay="0.7s">
-                      <div class="service-item d-flex flex-column justify-content-center text-center rounded">
-                          <div class="service-icon btn-square">
-                              <i class="fa fa-users fa-2x"></i>
-                          </div>
-                          <h5 class="mb-3">Addressing Labor Shortages</h5>
-                          <p>
-                              Robots can help address personnel gaps by performing tasks difficult to complete on a constant basis. Their dependability ensures continuity, especially during periods of high demand, making them essential in aging populations or regions with declining interest in service-sector occupations.
-                          </p>
-                                                    <a class="btn px-3 mt-auto mx-auto" href="feature.html">Read More</a>
-
-                      </div>
-                  </div>
-
-                  <!-- Column 5: Leveraging Data for Personalization -->
-                  <div class="col-md-4 wow fadeIn" data-wow-delay="0.9s">
-                      <div class="service-item d-flex flex-column justify-content-center text-center rounded">
-                          <div class="service-icon btn-square">
-                              <i class="fa fa-database fa-2x"></i>
-                          </div>
-                          <h5 class="mb-3">Leveraging Data for Personalization</h5>
-                          <p>
-                              Robots powered by AI and IoT can gather and analyze vast amounts of visitor data, allowing businesses to personalize services. This data-driven strategy enhances visitor experiences, providing tailored recommendations and improving satisfaction.
-                          </p>
-                                                    <a class="btn px-3 mt-auto mx-auto" href="feature.html">Read More</a>
-
-                      </div>
-                  </div>
-
-                
-              </div>
+          <div class="row g-4" id="benefit-items-container">
+              <!-- Dynamically generated benefit items will be appended here -->
           </div>
       </div>
   </div>
 </div>
-
 
 <!-- Service End -->
 
@@ -335,84 +256,9 @@
                 <h1 class="mb-4">Drawbacks of Robotics in the Hospitality Industry</h1>
             </div>
             <div class="col-lg-12">
-                <div class="row g-4">
-                    <!-- Column 1: High Initial and Maintenance Costs -->
-                    <div class="col-md-4 wow fadeIn" data-wow-delay="0.1s">
-                        <div style="background-color:#1363C6 !important" class="service-item d-flex flex-column justify-content-center text-center rounded bg-primary text-white">
-                            <div class="service-icon btn-square bg-white text-primary">
-                                <i class="fa fa-money-bill-wave fa-2x"></i>
-                            </div>
-                            <h5 class="mb-3 text-white">High Initial and Maintenance Costs</h5>
-                            <p>
-                                Robots require a significant initial investment for purchase, installation, and integration. Maintenance, software upgrades, and repairs can further strain resources, especially for SMEs.
-                            </p>
-                                                      <a class="btn btn-light  px-3 mt-auto mx-auto" href="drawback.html">Read More</a>
-
-                        </div>
-                    </div>
-
-                    <!-- Column 2: Loss of Human Touch -->
-                    <div class="col-md-4 wow fadeIn" data-wow-delay="0.3s">
-                        <div style="background-color:#1363C6 !important" class="service-item d-flex flex-column justify-content-center text-center rounded bg-primary text-white">
-                            <div class="service-icon btn-square bg-white text-primary">
-                                <i class="fa fa-heart fa-2x"></i>
-                            </div>
-                            <h5 class="mb-3 text-white">Loss of Human Touch</h5>
-                            <p>
-                                Robots lack empathy and emotional intelligence, which are crucial for addressing nuanced guest concerns. They cannot replicate the personal connection that human staff provide.
-                            </p>
-                                                      <a class="btn btn-light  px-3 mt-auto mx-auto" href="drawback.html">Read More</a>
-
-                        </div>
-                    </div>
-
-                    <!-- Column 3: Technical Challenges and Cybersecurity Risks -->
-                    <div class="col-md-4 wow fadeIn" data-wow-delay="0.5s">
-                        <div style="background-color:#1363C6 !important" class="service-item d-flex flex-column justify-content-center text-center rounded bg-primary text-white">
-                            <div class="service-icon btn-square bg-white text-primary">
-                                <i class="fa fa-shield-alt fa-2x"></i>
-                            </div>
-                            <h5 class="mb-3 text-white">Technical Challenges & Cybersecurity Risks</h5>
-                            <p>
-                                Robotic systems face technical failures and cybersecurity threats, requiring robust security measures to protect data and maintain operational continuity.
-                            </p>
-                                                      <a class="btn btn-light  px-3 mt-auto mx-auto" href="drawback.html">Read More</a>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row g-4 mt-4">
-                    <!-- Column 4: Job Displacement and Socio-Economic Implications -->
-                    <div class="col-md-4 wow fadeIn" data-wow-delay="0.7s">
-                        <div style="background-color:#1363C6 !important" class="service-item d-flex flex-column justify-content-center text-center rounded bg-primary text-white">
-                            <div class="service-icon btn-square bg-white text-primary">
-                                <i class="fas fa-briefcase fa-2x"></i>
-                            </div>
-                            <h5 class="mb-3 text-white">Job Displacement & Socio-Economic Implications</h5>
-                            <p>
-                                Automation can displace human labor, especially in entry-level roles, raising ethical concerns and potentially impacting staff morale and livelihoods.
-                            </p>
-                                                      <a class="btn btn-light  px-3 mt-auto mx-auto" href="drawback.html">Read More</a>
-
-                        </div>
-                    </div>
-
-                    <!-- Column 5: Limited Acceptance Across Demographics -->
-                    <div class="col-md-4 wow fadeIn" data-wow-delay="0.9s">
-                        <div style="background-color:#1363C6 !important" class="service-item d-flex flex-column justify-content-center text-center rounded bg-primary text-white">
-                            <div class="service-icon btn-square bg-white text-primary">
-                                <i class="fa fa-users fa-2x"></i>
-                            </div>
-                            <h5 class="mb-3 text-white">Limited Acceptance Across Demographics</h5>
-                            <p>
-                                Resistance to robotics is common among older generations and culturally conservative markets where personal service is highly valued, such as in India and the Middle East.
-                            </p>
-                                                      <a class="btn btn-light  px-3 mt-auto mx-auto" href="drawback.html">Read More</a>
-
-                        </div>
-                    </div>
-                </div>
+              <div class="row g-4" id="Drawbacks-container">
+                <!-- Dynamically generated drawback items will be appended here -->
+              </div>
             </div>
         </div>
     </div>
@@ -433,97 +279,9 @@
            
               <h1 class="mb-4">Critical Evaluation of Issues in Robotics  </h1>
             </div>
-            <div class="row g-4">
-                <!-- Striking a Balance Between Automation and Human Interaction -->
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.3s">
-                    <div class="case-item position-relative overflow-hidden rounded mb-2">
-                        <img class="img-fluid" src="img/ainew.png" alt="" style="height: 485px;width:455px;" />
-                        <a class="case-overlay text-decoration-none" href="critical-issues.html">
-                            <h5 class="lh-base text-white mb-3">
-                                Striking the Balance Between Automation and Human Interaction
-                            </h5>
-                            <p class="text-white">
-                                While robots improve operational efficiency, the hospitality industry thrives on personal interactions. Finding the right balance between automation and human engagement is crucial to maintain guest satisfaction.
-                            </p>
-                            <span class="btn btn-square btn-primary"><i class="fa fa-arrow-right"></i></span>
-                           
-                        </a>
-                    </div>
-                </div>
-    
-                <!-- Addressing Privacy and Security Concerns -->
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="case-item position-relative overflow-hidden rounded mb-2">
-                        <img class="img-fluid" src="img/129788.jpg" alt="" style="height: 485px;width:455px;"/>
-                        <a class="case-overlay text-decoration-none" href="critical-issues.html">
-                            <h5 class="lh-base text-white mb-3">
-                                Addressing Privacy and Security Concerns in Robotics
-                            </h5>
-                            <p class="text-white">
-                                As robots collect sensitive data, addressing privacy and security risks is essential. Businesses must ensure robust cybersecurity measures to prevent data breaches and safeguard guest information.
-                            </p>
-                                                        <span class="btn btn-square btn-primary"><i class="fa fa-arrow-right"></i></span>
-
-                           
-                        </a>
-                    </div>
-                </div>
-    
-                <!-- Designing Inclusive and Accessible Systems -->
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.7s">
-                    <div class="case-item position-relative overflow-hidden rounded mb-2">
-                        <img class="img-fluid" src="img/project-3.jpg" alt="" />
-                        <a class="case-overlay text-decoration-none" href="critical-issues.html">
-                            <h5 class="lh-base text-white mb-3">
-                                Designing Inclusive and Accessible Robotic Systems
-                            </h5>
-                            <p class="text-white">
-                                To serve diverse guests, robotic systems must be inclusive. Features like user-friendly interfaces, multilingual support, and accessibility for people with disabilities are essential to creating a universally welcoming experience.
-                            </p>
-                                                        <span class="btn btn-square btn-primary"><i class="fa fa-arrow-right"></i></span>
-
-                           
-                        </a>
-                    </div>
-                </div>
-    
-                <!-- Mitigating Environmental Impact -->
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.9s">
-                    <div class="case-item position-relative overflow-hidden rounded mb-2">
-                        <img class="img-fluid" src="img/2148746488.jpg" alt="" style="height: 485px;width:455px;" />
-                        <a class="case-overlay text-decoration-none" href="critical-issues.html">
-                            <h5 class="lh-base text-white mb-3">
-                                Mitigating the Environmental Impact of Robotics
-                            </h5>
-                            <p class="text-white">
-                                The production, operation, and disposal of robotic systems contribute to electronic waste and energy consumption. To mitigate environmental harm, businesses must prioritize sustainable manufacturing and eco-friendly designs.
-                            </p>
-                                                        <span class="btn btn-square btn-primary"><i class="fa fa-arrow-right"></i></span>
-
-                           
-                        </a>
-                    </div>
-                </div>
-    
-                <!-- Upskilling Employees for Future Roles -->
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="1.1s">
-                    <div class="case-item position-relative overflow-hidden rounded mb-2">
-                        <img class="img-fluid" src="img/2149370113.jpg" alt=""  style="height: 485px;width:455px;"/>
-                        <a class="case-overlay text-decoration-none" href="critical-issues.html">
-                            <h5 class="lh-base text-white mb-3">
-                                Upskilling Employees for Future Roles
-                            </h5>
-                            <p class="text-white">
-                                As automation increases, upskilling employees for more advanced roles, such as managing robotic systems and analyzing data, will help retain workforce morale and improve operational capabilities.
-                            </p>
-                                                        <span class="btn btn-square btn-primary"><i class="fa fa-arrow-right"></i></span>
-
-                           
-                        </a>
-                    </div>
-                </div>
-    
-            </div>
+            <div id="Critical-container" class="row g-4">
+              <!-- Content will be dynamically populated here -->
+          </div>
         </div>
     </div>
     
@@ -548,96 +306,8 @@
             
               <h1 class="mb-4">Discussion and Future Trends in Robotics  </h1>
             </div>
-            <div class="row g-4">
-                <!-- Balancing Automation and Human Touch -->
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.3s">
-                    <div class="card border-0 shadow-sm rounded">
-                        <div class="card-body text-center">
-                            <i class="fa fa-handshake fa-3x text-primary mb-3"></i>
-                            <h5 class="card-title">Balancing Automation and Human Touch</h5>
-                            <p class="card-text">
-                                Striking the right balance between robotic automation and personal human interaction is crucial in maintaining high guest satisfaction while improving operational efficiency.
-                            </p>
-                                                      <a class="btn btn-primary px-3 mt-auto mx-auto" href="future.html">Read More</a>
-
-                        </div>
-                    </div>
-                </div>
-    
-                <!-- Addressing Workforce Challenges -->
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="card border-0 shadow-sm rounded">
-                        <div class="card-body text-center">
-                            <i class="fa fa-users-cog fa-3x text-primary mb-3"></i>
-                            <h5 class="card-title">Addressing Workforce Challenges</h5>
-                            <p class="card-text">
-                                As automation increases, addressing workforce challenges like job displacement and reskilling for future roles will be key to sustaining a positive and motivated workforce.
-                            </p>
-                                                      <a class="btn btn-primary px-3 mt-auto mx-auto" href="future.html">Read More</a>
-
-                        </div>
-                    </div>
-                </div>
-    
-                <!-- Enhancing Guest Acceptance -->
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.7s">
-                    <div class="card border-0 shadow-sm rounded">
-                        <div class="card-body text-center">
-                            <i class="fa fa-smile-beam fa-3x text-primary mb-3"></i>
-                            <h5 class="card-title">Enhancing Guest Acceptance</h5>
-                            <p class="card-text">
-                                For successful adoption, robotics must offer clear communication, comfort, and personalized experiences to ensure guests embrace new technologies.
-                            </p>
-                                                      <a class="btn btn-primary px-3 mt-auto mx-auto" href="future.html">Read More</a>
-
-                        </div>
-                    </div>
-                </div>
-    
-                <!-- Mitigating Technical and Security Risks -->
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.9s">
-                    <div class="card border-0 shadow-sm rounded">
-                        <div class="card-body text-center">
-                            <i class="fa fa-lock fa-3x text-primary mb-3"></i>
-                            <h5 class="card-title">Mitigating Technical and Security Risks</h5>
-                            <p class="card-text">
-                                As robotic systems collect and process sensitive data, implementing strong cybersecurity protocols and ensuring system stability is crucial for protecting both business and guest data.
-                            </p>
-                                                      <a class="btn btn-primary px-3 mt-auto mx-auto" href="future.html">Read More</a>
-
-                        </div>
-                    </div>
-                </div>
-    
-                <!-- Sustainability and Environmental Considerations -->
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="1.1s">
-                    <div class="card border-0 shadow-sm rounded">
-                        <div class="card-body text-center">
-                            <i class="fa fa-leaf fa-3x text-primary mb-3"></i>
-                            <h5 class="card-title">Sustainability and Environmental Considerations</h5>
-                            <p class="card-text">
-                                Minimizing the environmental impact of robotics through sustainable design, energy-efficient systems, and eco-friendly materials is key to aligning with green initiatives in hospitality.
-                            </p>
-                                                      <a class="btn btn-primary px-3 mt-auto mx-auto" href="future.html">Read More</a>
-
-                        </div>
-                    </div>
-                </div>
-    
-                <!-- Future Trends in Robotics for Hospitality -->
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="1.3s">
-                    <div class="card border-0 shadow-sm rounded">
-                        <div class="card-body text-center">
-                            <i class="fa fa-robot fa-3x text-primary mb-3"></i>
-                            <h5 class="card-title">Future Trends in Robotics for Hospitality</h5>
-                            <p class="card-text">
-                                Emerging technologies like AI-driven robots, autonomous service robots, and IoT integration will redefine guest interactions and operational efficiency in the hospitality sector.
-                            </p>
-                                                      <a class="btn btn-primary px-3 mt-auto mx-auto" href="future.html">Read More</a>
-
-                        </div>
-                    </div>
-                </div>
+            <div class="row g-4" id="Future-container">
+             
             </div>
         </div>
 
@@ -753,5 +423,200 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const apiUrl = "https://tkeworld.com/demo/robohost/api/list-content.php?category=Benefit";
+        const container = document.getElementById("benefit-items-container"); // Fetch container by ID
+    
+        // Fetch data from the API
+        fetch(apiUrl)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok " + response.statusText);
+            }
+            return response.json();
+          })
+          .then((data) => {
+            if (data && Array.isArray(data)) {
+              data.forEach((item, index) => {
+                // Generate a unique ID for each item
+                const uniqueId = `benefit-${index + 1}`;
+    
+                // Create columns dynamically
+                const col = document.createElement("div");
+                col.id = uniqueId; // Assign the unique ID
+                col.className = `col-md-4 wow fadeIn`;
+                col.setAttribute("data-wow-delay", `${0.1 * (index + 1)}s`);
+    
+                // Create service-item content
+                col.innerHTML = `
+                  <div class="service-item d-flex flex-column justify-content-center text-center rounded">
+                    <div class="service-icon btn-square">
+                      <i class="fa ${item.icon || "fa-star"} fa-2x"></i>
+                    </div>
+                    <h5 class="mb-3">${item.title || "Benefit Title"}</h5>
+                    <p>${item.display_description || "Benefit description goes here."}</p>
+                    <a class="btn px-3 mt-auto mx-auto" href="${item.link || "#"}">Read More</a>
+                  </div>
+                `;
+    
+                // Append the column to the container with ID 'Benefit'
+                container.appendChild(col);
+    
+                // Log the generated ID for verification
+               // console.log(`Appended item with ID: ${uniqueId}`);
+              });
+            } else {
+              console.error("Unexpected data format from API.");
+            }
+          })
+          .catch((error) => {
+            console.error("Error fetching data:", error);
+          });
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const apiUrl = "https://tkeworld.com/demo/robohost/api/list-content.php?category=Drawbacks";
+        const container = document.getElementById("Drawbacks-container"); // Fetch container by ID
+    
+        // Fetch data from the API
+        fetch(apiUrl)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok " + response.statusText);
+            }
+            return response.json();
+          })
+          .then((data) => {
+            if (data && Array.isArray(data)) {
+              data.forEach((item, index) => {
+                // Generate a unique ID for each item
+                const uniqueId = `drawback-${index + 1}`;
+    
+                // Create columns dynamically
+                const col = document.createElement("div");
+                col.id = uniqueId; // Assign the unique ID
+                col.className = `col-md-4 wow fadeIn`;
+                col.setAttribute("data-wow-delay", `${0.1 * (index + 1)}s`);
+    
+                // Create service-item content
+                col.innerHTML = `
+                  <div style="background-color:#1363C6 !important" class="service-item d-flex flex-column justify-content-center text-center rounded bg-primary text-white">
+                    <div class="service-icon btn-square bg-white text-primary">
+                      <i class="fa ${item.icon || "fa-exclamation-triangle"} fa-2x"></i>
+                    </div>
+                    <h5 class="mb-3 text-white">${item.title || "Drawback Title"}</h5>
+                    <p>${item.display_description || "Drawback description goes here."}</p>
+                    <a class="btn btn-light px-3 mt-auto mx-auto" href="${item.link || "drawback.html"}">Read More</a>
+                  </div>
+                `;
+    
+                // Append the column to the container with ID 'Drawbacks-container'
+                container.appendChild(col);
+    
+                // Log the generated ID for verification
+                //console.log(`Appended item with ID: ${uniqueId}`);
+              });
+            } else {
+              console.error("Unexpected data format from API.");
+            }
+          })
+          .catch((error) => {
+            console.error("Error fetching data:", error);
+          });
+      });
+    </script>
+
+  <script>
+    // Function to fetch data from the API for the 'Critical' category
+async function fetchCriticalData() {
+  const CriticalImgArray = ['img/ainew.png','img/129788.jpg','img/project-3.jpg','img/2148746488.jpg','img/2149370113.jpg']
+  console.log(CriticalImgArray);
+
+    try {
+        const response = await fetch('https://tkeworld.com/demo/robohost/api/list-content.php?category=Critical'); // Replace with your API URL
+        const data = await response.json();
+
+        // Filter data based on 'Critical' category
+        const criticalData = data.filter(item => item.category === 'Critical');
+        
+        // Get the Critical container
+        const container = document.getElementById('Critical-container');
+
+        // Clear any existing content
+        container.innerHTML = '';
+
+        // Loop through the critical data and generate HTML for each item
+        criticalData.forEach((item, index) => {
+          console.log(item);
+            const cardHTML = `
+                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="case-item position-relative overflow-hidden rounded mb-2">
+                        <img class="img-fluid" src="${CriticalImgArray[index]}" alt="${item.title}" style="height: 485px;width:455px;" />
+                        
+                        <a class="case-overlay text-decoration-none" href="${item.link}">
+                            <h5 class="lh-base text-white mb-3">${item.title}</h5>
+                            <p class="text-white">${item.display_description}</p>
+                            <span class="btn btn-square btn-primary"><i class="fa fa-arrow-right"></i></span>
+                        </a>
+                    </div>
+                </div>
+            `;
+            // Append the generated card to the container
+            container.innerHTML += cardHTML;
+        });
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+}
+
+// Call the fetch function when the page is loaded
+fetchCriticalData();
+    </script>
+
+    <script>
+      // Function to fetch data from the API for the 'Future' category
+async function fetchFutureData() {
+  try {
+    const response = await fetch('https://tkeworld.com/demo/robohost/api/list-content.php?category=Future'); // Replace with your API URL
+    const data = await response.json();
+
+      // Filter data based on 'Future' category
+      const futureData = data.filter(item => item.category === 'Future');
+      
+      // Get the Future container
+      const container = document.getElementById('Future-container');
+
+      // Clear any existing content
+      container.innerHTML = '';
+
+      // Loop through the future data and generate HTML for each item
+      futureData.forEach(item => {
+          const cardHTML = `
+              <div class="col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+                  <div class="card border-0 shadow-sm rounded">
+                      <div class="card-body text-center">
+                          <i class="fa ${item.icon} fa-3x text-primary mb-3"></i>
+                          <h5 class="card-title">${item.title}</h5>
+                          <p class="card-text">${item.display_description}</p>
+                          <a class="btn btn-primary px-3 mt-auto mx-auto" href="${item.link}">Read More</a>
+                      </div>
+                  </div>
+              </div>
+          `;
+          // Append the generated card to the container
+          container.innerHTML += cardHTML;
+      });
+  } catch (error) {
+      console.error('Error fetching data:', error);
+  }
+}
+
+// Call the fetch function when the page is loaded
+window.onload = fetchFutureData;
+
+    </script>
+    
   </body>
 </html>
