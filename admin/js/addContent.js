@@ -23,7 +23,7 @@ document.getElementById('addContentForm').addEventListener('submit', function(e)
 
 
     // Send the data to the backend API
-    fetch('http://localhost/robohost-bck/api/add-content.php', {
+    fetch('https://tkeworld.com/demo/robohost/api/add-content.php', {
      
         method: 'POST',
         body: formData,

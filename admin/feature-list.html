@@ -95,7 +95,7 @@
     <script>
         // Function to fetch content by category
         async function fetchContentByCategory(category) {
-            const response = await fetch(`http://localhost/robohost-bck/api/list-content.php?category=${category}`);
+            const response = await fetch(`https://tkeworld.com/demo/robohost/api/list-content.php?category=${category}`);
             const data = await response.json();
             const tableBody = document.getElementById('contentTableBody');
             tableBody.innerHTML = '';
