@@ -101,9 +101,17 @@ console.log('ID:', id);
             body: formData,
         });
     
-        const message = await response.json();
-       
-      alert('Content updated successfully.');
+        if (response.ok) {
+            // Parse the JSON response
+            const message = await response.json();
+            alert('Content updated successfully.');
+            // Reload content list with the "Benefit" category
+            fetchContentByCategory('Benefit');
+        } else {
+            // Handle non-OK responses
+            alert('Failed to update content. Please try again later.');
+        }       
+     // alert('Content updated successfully.');
         // Reload content list
         fetchContentByCategory('Benefit');
     });
