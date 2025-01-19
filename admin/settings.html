@@ -50,6 +50,7 @@
         margin-top: 20px;
     }
 </style>
+
 <body>
     <div class="dashboard-container">
         <aside class="sidebar">
@@ -68,16 +69,24 @@
         </aside>
         <main class="content">
             <div class="container">
-                <h1>Manage Content</h1>
+                <h1>HomePage Content Manage</h1>
                 <form id="contentForm">
                     <!-- Hidden ID Field for Update -->
                     <input type="hidden" name="id" id="id" />
+
+                     <label for="slider_text">Slider Text</label>
+                    <input type="text" name="slider_text" id="slider_text" placeholder="Enter Image URL or Path" />
         
-                    <label for="about_us">About Us</label>
+                    <label for="about_us">About Us para 1</label>
                     <textarea name="about_us" id="about_us" rows="4" placeholder="Enter About Us content"></textarea>
-        
+
+                    <label for="about_us_para">About Us para 2</label>
+                    <textarea name="about_us_para" id="about_us_para" rows="4" placeholder="Enter About Us content"></textarea>
+
                     <label for="about_us_img">About Us Image</label>
-                    <input type="text" name="about_us_img" id="about_us_img" placeholder="Enter Image URL or Path" />
+                    <input type="file" name="about_us_img" id="about_us_img" placeholder="Enter Image URL or Path" />
+                    <div id="imgshow"></div>
+                    <br/>
         
                     <label for="benefit_title">Benefit Title</label>
                     <input type="text" name="benefit_title" id="benefit_title" placeholder="Enter Benefit Title" />
@@ -91,7 +100,7 @@
                     <label for="future_title">Future Title</label>
                     <input type="text" name="future_title" id="future_title" placeholder="Enter Future Title" />
         
-                    <button type="button" id="submitBtn">Submit</button>
+                    <button type="submit" id="submitBtn">Submit</button>
                 </form>
                 <div id="message"></div>
             </div>
@@ -110,16 +119,19 @@
 
                 if (result.status === 'success') {
                     const data = result.data[0];
-                    //console.log(data);
+                    console.log(data);
 
                     // Populate fields with fetched data
                     document.getElementById('id').value = data.id;
                     document.getElementById('about_us').value = data.about_us;
-                    document.getElementById('about_us_img').value = data.about_us_img;
+                    document.getElementById('about_us_para').value = data.about_us_para;
                     document.getElementById('benefit_title').value = data.benefit_title;
                     document.getElementById('drawbacks_title').value = data.drawbacks_title;
                     document.getElementById('critical_title').value = data.critical_title;
                     document.getElementById('future_title').value = data.future_title;
+                    document.getElementById('slider_text').value = data.slider_text;
+                    document.getElementById('imgshow').innerHTML  = ` <img src="https://tkeworld.com/demo/robohost/api/${data.about_us_img}" style="width: 200px; height: 100px;">`;
+
                 } else {
                     document.getElementById('message').textContent = result.message;
                     document.getElementById('message').style.color = 'red';
@@ -132,50 +144,42 @@
         }
 
         // Function to submit form data
-        async function submitData() {
-            const id = document.getElementById('id').value.trim();
-            const aboutUs = document.getElementById('about_us').value.trim();
-            const aboutUsImg = document.getElementById('about_us_img').value.trim();
-            const benefitTitle = document.getElementById('benefit_title').value.trim();
-            const drawbacksTitle = document.getElementById('drawbacks_title').value.trim();
-            const criticalTitle = document.getElementById('critical_title').value.trim();
-            const futureTitle = document.getElementById('future_title').value.trim();
-
-            const formData = new URLSearchParams({
-                id: id || '', // Blank for new entries
-                about_us: aboutUs,
-                about_us_img: aboutUsImg,
-                benefit_title: benefitTitle,
-                drawbacks_title: drawbacksTitle,
-                critical_title: criticalTitle,
-                future_title: futureTitle
-            });
-
+        document.getElementById('contentForm').addEventListener('submit', async (e) => {
+            e.preventDefault(); // Prevent default form submission (page refresh)
+        
+            const apiUrl = 'https://tkeworld.com/demo/robohost/api/apiCore.php'; // Replace with your actual API URL
+            const formData = new FormData(e.target); // Create FormData object from the form
+        
             try {
                 const response = await fetch(apiUrl, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: formData.toString()
+                    body: formData,
                 });
-
+        
                 const result = await response.json();
                 const messageDiv = document.getElementById('message');
-
+        
                 if (result.status === 'success') {
+                    // Display success message
                     messageDiv.textContent = result.message;
                     messageDiv.style.color = 'green';
-                    //document.getElementById('contentForm').reset(); // Clear form
+                    alert(result.message); // Optional: Show alert for success
+                    // Optionally reset the form here if needed
+                    // document.getElementById('contentForm').reset();
                 } else {
+                    // Display error message returned by API
                     messageDiv.textContent = result.message;
                     messageDiv.style.color = 'red';
                 }
             } catch (error) {
                 console.error('Error:', error);
+                // Display a fallback error message
                 const messageDiv = document.getElementById('message');
                 messageDiv.textContent = 'An error occurred while submitting the data.';
                 messageDiv.style.color = 'red';
             }
-        }
+        });
+        
 
         // Fetch data for a specific ID (e.g., ID = 1) when the page loads
         document.addEventListener('DOMContentLoaded', () => {
@@ -183,7 +187,6 @@
         });
 
         // Attach submit handler
-        document.getElementById('submitBtn').addEventListener('click', submitData);
     </script>
 </body>
 </html>

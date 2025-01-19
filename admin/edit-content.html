@@ -31,13 +31,16 @@
                 <h1>Edit Content</h1>
                 <form id="editContentForm">
                     <input type="hidden" id="editId" name="id">
+                    <label for="editTitle">Title:</label>
+                    <input type="text" id="editTitle" class="form-control" name="title" required><br><br>
             
                     <label for="editIcon">Icon URL or File Path:</label>
                     <input type="text" class="form-control" id="editIcon" name="icon" required><br><br>
-            
+
                     <label for="editImg">Primary Image URL or File Path:</label>
                     <input type="file" id="editImg" class="form-control" name="img" ><br><br>
-            
+                    <div id="imgshow"></div><br><br>
+
                     <label for="editDisplayDescription">Display Description:</label>
                     <textarea id="editDisplayDescription" class="form-control" name="display_description" required></textarea><br><br>
             
@@ -47,9 +50,7 @@
                     <label for="editDescription">Detailed Description:</label>
                     <textarea id="editDescription" class="form-control" name="description" required></textarea><br><br>
             
-                    <label for="editTitle">Title:</label>
-                    <input type="text" id="editTitle" class="form-control" name="title" required><br><br>
-            
+                    
                     <label for="editCategory">Category:</label>
                     <select id="editCategory" class="form-control" name="category">
                         <option value="Benefit">Benefit</option>
@@ -86,6 +87,7 @@ console.log('ID:', id);
         document.getElementById('editTitle').value = data.title;
         document.getElementById('editCategory').value = data.category;
         document.getElementById('editDescription').value = data.description;
+        document.getElementById('imgshow').innerHTML  = ` <img src="https://tkeworld.com/demo/robohost/api/${data.img}" style="width: 200px; height: 100px;">`;
     
         // Show the edit form
         document.getElementById('editFormContainer').style.display = 'block';
