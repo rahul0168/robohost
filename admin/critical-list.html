@@ -75,7 +75,6 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Icon</th>
                         <th>Title</th>
                         <th>Category</th>
                         <th>Description</th>
@@ -103,7 +102,6 @@
             data.forEach(item => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td><img src="${item.icon}" alt="Icon" style="width: 50px;"></td>
                     <td>${item.title}</td>
                     <td>${item.category}</td>
                     <td>${item.display_description}</td>
