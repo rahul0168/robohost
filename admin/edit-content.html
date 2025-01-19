@@ -102,10 +102,8 @@ console.log('ID:', id);
         });
     
         const message = await response.json();
-        document.getElementById('editMessage').textContent = message.success
-            ? 'Content updated successfully.'
-            : 'Failed to update content.';
-    
+       
+      alert('Content updated successfully.');
         // Reload content list
         fetchContentByCategory('Benefit');
     });
