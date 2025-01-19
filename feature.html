@@ -131,7 +131,7 @@
 
     <!-- Feature Start -->
     <div class="container-fluid pt-5">
-      <div class="container">
+      <div class="container" id="Benefit-container">
         <!-- Section 1 -->
         <div class="row section-padding align-items-center">
           <div class="col-md-6">
@@ -347,5 +347,73 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+      // Function to fetch data from the API for the 'Benefit' category
+async function fetchBenefitData() {
+  try {
+    //const apiUrl = "https://tkeworld.com/demo/robohost/api/list-content.php?category=Future";
+    const response = await fetch('https://tkeworld.com/demo/robohost/api/list-content.php?category=Benefit'); // Replace with your API URL
+
+    const data = await response.json();
+
+      // Filter data based on 'Benefit' category
+      const benefitData = data.filter(item => item.category === 'Benefit');
+      
+      // Get the Benefit container
+      const container = document.getElementById('Benefit-container');
+
+      // Clear any existing content
+      container.innerHTML = '';
+    
+
+      // Loop through the benefit data and generate HTML for each item
+      benefitData.forEach((item,index) => {
+        let orderClass;
+        switch (index) {
+            case 0:
+                orderClass = '';
+                orderClass1 = '';
+                break;
+            case 1:
+                orderClass = 'order-md-2';
+                orderClass1 = 'order-md-1';
+                break;
+            case 2:
+            orderClass = '';
+            orderClass1 = '';
+            break;
+            case 3:
+            orderClass = 'order-md-2';
+            orderClass1 = 'order-md-1';                
+            break;
+            case 4:
+                orderClass = '';
+                break;
+            default:
+                orderClass = 'order-md-2';
+        }
+        
+          const sectionHTML = `
+            <div class="row section-padding align-items-center">
+              <div class="col-md-6 ${orderClass}">
+                  <h2>${item.title}</h2>
+                  <p>${item.description}</p>
+              </div>
+              <div class="col-md-6 ${orderClass1}">
+                  <img src="https://tkeworld.com/demo/robohost/api/${item.img}" alt="${item.title}" class="content-image">
+              </div>
+              </div>
+          `;
+          // Append the generated section to the container
+          container.innerHTML += sectionHTML;
+      });
+  } catch (error) {
+      console.error('Error fetching data:', error);
+  }
+}
+
+// Call the fetch function when the page is loaded
+fetchBenefitData()
+    </script>
   </body>
 </html>
